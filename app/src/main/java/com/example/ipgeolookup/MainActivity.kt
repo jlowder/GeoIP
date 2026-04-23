@@ -263,43 +263,34 @@ class MainActivity : AppCompatActivity() {
                 val lat = parts[0].trim().toDouble()
                 val lon = parts[1].trim().toDouble()
                 
-                // Open in external map app
-                val gmmIntentUri = Uri.parse("geo:0,0?q=$lat,$lon")
-                
-                // Try multiple Google Maps package names
-                val googleMapsPackages = listOf(
-                    "com.google.android.apps.maps",
-                    "com.google.android.googlequicksearchbox",
-                    "com.google.android.apps.maps.app2"
-                )
+                // Use standard geo URI format: geo:$lat,$lon (direct coordinates)
+                val geoUri = Uri.parse("geo:$lat,$lon")
+                val mapIntent = Intent(Intent.ACTION_VIEW, geoUri).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
                 
                 var launched = false
-                for (packageName in googleMapsPackages) {
-                    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri).apply {
-                        setPackage(packageName)
-                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    }
-                    
-                    if (mapIntent.resolveActivity(packageManager) != null) {
-                        try {
-                            startActivity(mapIntent)
-                            launched = true
-                            break
-                        } catch (e: Exception) {
-                            // Continue to next package on error
-                        }
+                
+                // Try to launch with geo intent (allows system to choose any map app)
+                if (mapIntent.resolveActivity(packageManager) != null) {
+                    try {
+                        startActivity(mapIntent)
+                        launched = true
+                    } catch (e: Exception) {
+                        // Fall through to web fallback
                     }
                 }
                 
-                // If Google Maps wasn't found or didn't launch, try generic geo intent
+                // Web-based fallback to Google Maps
                 if (!launched) {
-                    val genericIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri).apply {
+                    val webUri = Uri.parse("http://maps.google.com/?q=$lat,$lon")
+                    val webIntent = Intent(Intent.ACTION_VIEW, webUri).apply {
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     }
                     
-                    if (genericIntent.resolveActivity(packageManager) != null) {
+                    if (webIntent.resolveActivity(packageManager) != null) {
                         try {
-                            startActivity(genericIntent)
+                            startActivity(webIntent)
                             launched = true
                         } catch (e: Exception) {
                             // Fall through to error
