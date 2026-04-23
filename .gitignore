@@ -1,0 +1,60 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java source files
+*.java
+*.jav
+
+# Generated files
+bin/
+gen/
+out/
+app/build/
+
+# Gradle files
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration file (sdk path, API tokens, etc.)
+local.properties
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Proguard
+proguard/
+mapping.txt
+seeds.txt
+usage.txt
+assets/
+docs/
+
+# OpenStreetMap tiles
+tiles/
+
+# Android KeyStore
+*.jks
+*.keystore
+
+# Log files
+*.log
+
+# Fastlane
+fastlane/report.xml
+fastlane/preview.xml
+fastlane/screenshots/*.png
+
+# Debugging
+*.log
+*.cache
+*.tmp
