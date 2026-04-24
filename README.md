@@ -1,5 +1,14 @@
 # IP Geo Lookup - Android Application
 
+![Android](https://img.shields.io/badge/Android-6.0%2B-green.svg?logo=android)
+![Platform](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.3.20-blue.svg?logo=kotlin)
+![Gradle](https://img.shields.io/badge/Gradle-9.4.1-red.svg?logo=gradle)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Tests](https://img.shields.io/badge/Tests-JUnit%204-4285F4.svg)
+![Powered by IPinfo.io](https://img.shields.io/badge/Powered%20by-IPinfo.io-orange.svg)
+
 A complete Android Kotlin application for IP geolocation lookup using IPinfo.io API.
 
 ## Features
