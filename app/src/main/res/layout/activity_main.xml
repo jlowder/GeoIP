@@ -138,14 +138,23 @@
                         android:textColor="?attr/colorPrimary"
                         android:textStyle="bold" />
 
+                   <TextView
+                        android:id=\"@+id/ip_address_value\"
+                        android:layout_width=\"wrap_content\"
+                        android:layout_height=\"wrap_content\"
+                        android:layout_marginTop=\"8dp\"
+                        android:textSize=\"18sp\"
+                        android:textStyle=\"bold\"
+                        tools:text=\"192.168.1.1\" />
+
                     <TextView
-                        android:id="@+id/ip_address_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        tools:text="192.168.1.1" />
+                        android:id=\"@+id/ip_type_value\"
+                        android:layout_width=\"wrap_content\"
+                        android:layout_height=\"wrap_content\"
+                        android:layout_marginTop=\"4dp\"
+                        android:textSize=\"14sp\"
+                        android:textColor=\"?attr/colorPrimary\"
+                        android:text=\"@string/ip_type_label\" />
 
                 </LinearLayout>
 
