@@ -154,7 +154,7 @@
                         android:layout_marginTop="4dp"
                         android:textSize="14sp"
                         android:textColor="?attr/colorPrimary"
-                        android:text="@string/ip_type_label" />
+                        tools:text="IPv4" />
 
                 </LinearLayout>
 
