@@ -228,9 +228,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun is_valid_ip(ip: String): Boolean {
-        // Basic IP validation
-        val pattern = Regex("^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$")
-        return pattern.matches(ip)
+        // Support IPv4, IPv6, IPv4-mapped IPv6, and case-insensitive IPv6
+        val ipv4Pattern = Regex("^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$")
+        val ipv6Pattern = Regex("^(?:(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,7}:|(?:[0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,5}(?::[0-9a-fA-F]{1,4}){1,2}|(?:[0-9a-fA-F]{1,4}:){1,4}(?::[0-9a-fA-F]{1,4}){1,3}|(?:[0-9a-fA-F]{1,4}:){1,3}(?::[0-9a-fA-F]{1,4}){1,4}|(?:[0-9a-fA-F]{1,4}:){1,2}(?::[0-9a-fA-F]{1,4}){1,5}|:[0-9a-fA-F]{1,4}(?::[0-9a-fA-F]{1,4}){1,6}|:|::ffff:)?(?:\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|(?:(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,7}:|(?:[0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,5}(?::[0-9a-fA-F]{1,4}){1,2}|(?:[0-9a-fA-F]{1,4}:){1,4}(?::[0-9a-fA-F]{1,4}){1,3}|(?:[0-9a-fA-F]{1,4}:){1,3}(?::[0-9a-fA-F]{1,4}){1,4}|(?:[0-9a-fA-F]{1,4}:){1,2}(?::[0-9a-fA-F]{1,4}){1,5}|:[0-9a-fA-F]{1,4}(?::[0-9a-fA-F]{1,4}){1,6}|:)$)")
+        return ipv4Pattern.matches(ip) || ipv6Pattern.matches(ip)
     }
     
     private fun showLocationDetails(location: GeoLocation) {
@@ -242,6 +243,10 @@ class MainActivity : AppCompatActivity() {
         binding.coordinatesValue.text = location.getFormattedCoordinates()
         binding.organizationValue.text = location.organization ?: "N/A"
         binding.ispValue.text = location.isp ?: "N/A"
+        
+        // Display IP type indicator
+        val ipType = if (location.ipAddress.contains(':')) "IPv6" else "IPv4"
+        binding.ipTypeValue.text = ipType
         
         // Show content container and hide error message
         binding.contentContainer.visibility = NestedScrollView.VISIBLE
@@ -322,7 +327,9 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun copyLocationToClipboard() {
-        val location = "${binding.ipAddressValue.text}\n" +
+        val ipAddress = binding.ipAddressValue.text.toString()
+        val ipType = binding.ipTypeValue.text.toString()
+        val location = "IP Address: $ipAddress\nIP Type: $ipType\n" +
                 "${binding.countryValue.text}\n" +
                 "${binding.regionValue.text}\n" +
                 "${binding.cityValue.text}\n" +

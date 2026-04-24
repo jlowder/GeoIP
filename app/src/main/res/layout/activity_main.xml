@@ -147,6 +147,15 @@
                         android:textStyle="bold"
                         tools:text="192.168.1.1" />
 
+                    <TextView
+                        android:id="@+id/ip_type_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textSize="14sp"
+                        android:textColor="?attr/colorPrimary"
+                        tools:text="IPv4" />
+
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
