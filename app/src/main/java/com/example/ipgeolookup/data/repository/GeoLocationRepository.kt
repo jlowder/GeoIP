@@ -14,7 +14,7 @@ class GeoLocationRepository {
     suspend fun getIpInfo(ip: String? = null): Result<GeoLocation> {
         return withContext(Dispatchers.IO) {
             try {
-                val resolvedIp = ip?.takeIf { it.isNotBlank() }?.let {
+                val resolvedIp = ip?.let {
                     try {
                         InetAddress.getByName(it).hostAddress
                     } catch (e: UnknownHostException) {
