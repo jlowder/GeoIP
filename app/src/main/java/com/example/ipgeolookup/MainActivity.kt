@@ -29,6 +29,8 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
+import java.net.InetAddress
+import java.net.UnknownHostException
 
 class MainActivity : AppCompatActivity() {
     
@@ -198,13 +200,37 @@ class MainActivity : AppCompatActivity() {
     private fun validateAndLookupIp(ip: String) {
         // Simple IP validation (basic check)
         if (!is_valid_ip(ip)) {
-            // FIX: Use the Int overload of showError or getString()
             showError(R.string.error_invalid_ip)
             return
         }
 
-        showLoading()
-        viewModel.getIpInfo(ip)
+        // Check if input is a hostname (contains dots but no dots in IP address positions)
+        val ipv4Pattern = Regex("^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$")
+        // Extract the ipv6Pattern from is_valid_ip - simplified check
+        val ipv6PatternStr = "^(?:(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,7}:|(?:[0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,5}(?::[0-9a-fA-F]{1,4}){1,2}|(?:[0-9a-fA-F]{1,4}:){1,4}(?::[0-9a-fA-F]{1,4}){1,3}|(?:[0-9a-fA-F]{1,4}:){1,3}(?::[0-9a-fA-F]{1,4}){1,4}|(?:[0-9a-fA-F]{1,4}:){1,2}(?::[0-9a-fA-F]{1,4}){1,5}|:[0-9a-fA-F]{1,4}(?::[0-9a-fA-F]{1,4}){1,6}|:|::ffff:)?(?:\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|(?:(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,7}:|(?:[0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,5}(?::[0-9a-fA-F]{1,4}){1,2}|(?:[0-9a-fA-F]{1,4}:){1,4}(?::[0-9a-fA-F]{1,4}){1,3}|(?:[0-9a-fA-F]{1,4}:){1,3}(?::[0-9a-fA-F]{1,4}){1,4}|(?:[0-9a-fA-F]{1,4}:){1,2}(?::[0-9a-fA-F]{1,4}){1,5}|:[0-9a-fA-F]{1,4}(?::[0-9a-fA-F]{1,4}){1,6}|:)$"
+        val ipv6Pattern = Regex(ipv6PatternStr)
+        val isHostname = !ipv4Pattern.matches(ip) && ip.contains('.') && !ipv6Pattern.matches(ip)
+
+        if (isHostname) {
+            // Resolve hostname to IP first
+            try {
+                val hosts = InetAddress.getAllByName(ip)
+                if (hosts.isNotEmpty()) {
+                    val resolvedIp = hosts[0].hostAddress
+                    showLoading()
+                    viewModel.getIpInfo(resolvedIp)
+                } else {
+                    showError(R.string.error_host_not_found)
+                }
+            } catch (e: UnknownHostException) {
+                showError(R.string.error_host_not_found)
+            } catch (e: Exception) {
+                showError(R.string.error_lookup_failed)
+            }
+        } else {
+            showLoading()
+            viewModel.getIpInfo(ip)
+        }
     }
 
     private fun updateMapLocation(latitude: Double?, longitude: Double?) {
