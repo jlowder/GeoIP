@@ -204,10 +204,10 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        // Check if input is a hostname (contains dots but not a valid IP)
+        // Check if input is a hostname (contains dots but not a valid IP, and no colons for IPv6)
         val ipv4Pattern = Regex("^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$")
         val ipv6Pattern = Regex("^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(?::[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(?::[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(?::[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(?::[0-9a-fA-F]{1,4}){1,5}|:[0-9a-fA-F]{1,4}(?::[0-9a-fA-F]{1,4}){1,6}|:|::ffff:[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$")
-        val isHostname = ip.contains('.') && !ipv4Pattern.matches(ip) && !ipv6Pattern.matches(ip)
+        val isHostname = ip.contains('.') && !ip.contains(':') && !ipv4Pattern.matches(ip) && !ipv6Pattern.matches(ip)
 
         if (isHostname) {
             // Resolve hostname to IP first
