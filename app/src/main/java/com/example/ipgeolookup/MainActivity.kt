@@ -47,7 +47,8 @@ class MainActivity : AppCompatActivity() {
         val granted = permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true ||
                       permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true
         if (granted) {
-            // Permission granted, continue with location-based features
+            // Permission granted, retry IP-based location detection
+            detectCurrentLocation()
         } else {
             // Permission denied, show a message
             Toast.makeText(
