@@ -29,6 +29,8 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
+import java.net.InetAddress
+import java.net.UnknownHostException
 
 class MainActivity : AppCompatActivity() {
     
@@ -198,7 +200,6 @@ class MainActivity : AppCompatActivity() {
     private fun validateAndLookupIp(ip: String) {
         // Simple IP validation (basic check)
         if (!is_valid_ip(ip)) {
-            // FIX: Use the Int overload of showError or getString()
             showError(R.string.error_invalid_ip)
             return
         }
@@ -228,10 +229,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun is_valid_ip(ip: String): Boolean {
-        // Support IPv4, IPv6, IPv4-mapped IPv6, and case-insensitive IPv6
+        // Support IPv4, IPv6, IPv4-mapped IPv6, hostnames, and case-insensitive IPv6
         val ipv4Pattern = Regex("^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$")
         val ipv6Pattern = Regex("^(?:(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,7}:|(?:[0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,5}(?::[0-9a-fA-F]{1,4}){1,2}|(?:[0-9a-fA-F]{1,4}:){1,4}(?::[0-9a-fA-F]{1,4}){1,3}|(?:[0-9a-fA-F]{1,4}:){1,3}(?::[0-9a-fA-F]{1,4}){1,4}|(?:[0-9a-fA-F]{1,4}:){1,2}(?::[0-9a-fA-F]{1,4}){1,5}|:[0-9a-fA-F]{1,4}(?::[0-9a-fA-F]{1,4}){1,6}|:|::ffff:)?(?:\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|(?:(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,7}:|(?:[0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,5}(?::[0-9a-fA-F]{1,4}){1,2}|(?:[0-9a-fA-F]{1,4}:){1,4}(?::[0-9a-fA-F]{1,4}){1,3}|(?:[0-9a-fA-F]{1,4}:){1,3}(?::[0-9a-fA-F]{1,4}){1,4}|(?:[0-9a-fA-F]{1,4}:){1,2}(?::[0-9a-fA-F]{1,4}){1,5}|:[0-9a-fA-F]{1,4}(?::[0-9a-fA-F]{1,4}){1,6}|:)$)")
-        return ipv4Pattern.matches(ip) || ipv6Pattern.matches(ip)
+        val hostnamePattern = Regex("^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
+        return ipv4Pattern.matches(ip) || ipv6Pattern.matches(ip) || hostnamePattern.matches(ip)
     }
     
     private fun showLocationDetails(location: GeoLocation) {
