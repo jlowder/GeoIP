@@ -28,7 +28,7 @@ A complete Android Kotlin application for IP geolocation lookup using IPinfo.io 
 ```bash
 git clone https://github.com/yourusername/ipgeolookup.git
 cd ipgeolookup
-./gradlew assembleDebug
+./gradlew build
 ```
 
 The APK will be generated at `app/build/outputs/apk/debug/app-debug.apk`
