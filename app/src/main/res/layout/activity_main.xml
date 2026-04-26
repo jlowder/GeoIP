@@ -76,7 +76,8 @@
                 android:imeOptions="actionSearch"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:backgroundTint="@android:color/transparent" />
+                android:backgroundTint="@android:color/transparent"
+                android:paddingEnd="40dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/search_button"
@@ -86,6 +87,16 @@
                 app:icon="@drawable/ic_search"
                 app:iconGravity="textStart"
                 style="@style/Widget.Material3.Button.TextButton" />
+
+            <ImageButton
+                android:id="@+id/clear_button"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/action_clear"
+                android:src="@drawable/ic_clear"
+                android:visibility="gone" />
 
         </LinearLayout>
 
