@@ -35,7 +35,7 @@ cd GeoIP
 ./gradlew build
 ```
 
-The APK will be generated at `app/build/outputs/apk/debug/app-debug.apk`
+The release and debug APK files will be generated under `app/build/outputs/apk/`
 
 ## API Integration
 
