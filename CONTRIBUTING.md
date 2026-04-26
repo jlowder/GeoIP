@@ -1,6 +1,6 @@
-# Contributing to IP Geo Lookup
+# Contributing to GeoIP 
 
-Thank you for your interest in contributing to IP Geo Lookup! This document provides guidelines for contributing to this Android application.
+Thank you for your interest in contributing to GeoIP! This document provides guidelines for contributing to this Android application.
 
 ## Getting Started
 

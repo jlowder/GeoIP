@@ -1,7 +1,7 @@
 # IPv6 Address Lookup Support - Implementation Summary
 
 ## Overview
-This document describes the changes made to add IPv6 address lookup support to the IP Geo Lookup Android application.
+This document describes the changes made to add IPv6 address lookup support to the GeoIP Android application.
 
 ## Changes Made
 

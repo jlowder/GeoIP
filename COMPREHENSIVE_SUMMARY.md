@@ -1,4 +1,4 @@
-# IP Geo Lookup - Android Application
+# GeoIP - Android Application
 
 A complete, production-ready Android Kotlin application for IP geolocation lookup.
 
