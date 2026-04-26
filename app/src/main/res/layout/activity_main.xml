@@ -77,7 +77,7 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:backgroundTint="@android:color/transparent"
-                android:paddingEnd="40dp" />
+                android:backgroundTint="@android:color/transparent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/search_button"
