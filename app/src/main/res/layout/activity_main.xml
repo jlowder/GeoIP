@@ -76,7 +76,6 @@
                 android:imeOptions="actionSearch"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:backgroundTint="@android:color/transparent"
                 android:backgroundTint="@android:color/transparent" />
 
             <com.google.android.material.button.MaterialButton

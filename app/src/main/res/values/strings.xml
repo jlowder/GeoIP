@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <string name="app_name">IP Geo Lookup</string>
+    <string name="app_name">GeoIP</string>
     <string name="action_search">Search</string>
     <string name="action_clear">Clear</string>
     <string name="action_copy">Copy</string>
@@ -14,16 +14,28 @@
     <string name="map_placeholder_text">Map will be displayed here</string>
     <string name="permission_required">Location permission required</string>
     <string name="permission_denied">Permission denied</string>
-    <string name="error_network">Network error. Please check your connection.</string>
+    <string
+        name="error_network"
+    >Network error. Please check your connection.</string>
     <string name="error_invalid_ip">Invalid IP address format.</string>
-    <string name="error_host_not_found">Could not resolve hostname. Please check the spelling or try an IP address.</string>
-    <string name="error_lookup_failed">Failed to look up IP information.</string>
+    <string
+        name="error_host_not_found"
+    >Could not resolve hostname. Please check the spelling or try an IP address.</string>
+    <string
+        name="error_lookup_failed"
+    >Failed to look up IP information.</string>
     <string name="error_not_found">IP address not found.</string>
-    <string name="error_unknown">An unknown error occurred. Please try again.</string>
+    <string
+        name="error_unknown"
+    >An unknown error occurred. Please try again.</string>
     <string name="loading">Loading location data…</string>
-    <string name="location_copied">Location information copied to clipboard</string>
+    <string
+        name="location_copied"
+    >Location information copied to clipboard</string>
     <string name="ip_copied">IP address copied to clipboard</string>
-    <string name="location_not_available">Location information not available</string>
+    <string
+        name="location_not_available"
+    >Location information not available</string>
     <string name="auto_detecting">Auto-detecting your IP address…</string>
     <string name="ip_address_label">IP Address:</string>
     <string name="ip_type_label">IP Type:</string>
