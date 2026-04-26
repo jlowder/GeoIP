@@ -1,8 +1,8 @@
-package com.example.ipgeolookup.data.remote
+package com.lowdermilk.geoip.data.remote
 
-import com.example.ipgeolookup.BuildConfig
-import com.example.ipgeolookup.data.model.GeoLocation
-import com.example.ipgeolookup.data.model.createGsonWithLocationParsing
+import com.lowdermilk.geoip.BuildConfig
+import com.lowdermilk.geoip.data.model.GeoLocation
+import com.lowdermilk.geoip.data.model.createGsonWithLocationParsing
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

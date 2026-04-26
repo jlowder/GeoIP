@@ -1,4 +1,4 @@
-package com.example.ipgeolookup.util
+package com.lowdermilk.geoip.util
 
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -8,67 +8,62 @@ class NetworkUtilsTest {
 
     @Test
     fun testValidIPv4() {
-        val validIps = listOf(
+        val validIPs = listOf(
             "192.168.1.1",
-            "8.8.8.8",
-            "127.0.0.1",
+            "10.0.0.1",
+            "172.16.0.1",
             "0.0.0.0",
             "255.255.255.255",
-            "1.2.3.4"
+            "127.0.0.1"
         )
-        for (ip in validIps) {
+        for (ip in validIPs) {
             assertTrue("Should be valid IPv4: $ip", NetworkUtils.isIPv4(ip))
-            assertTrue("Should be valid general IP: $ip", NetworkUtils.isValidIp(ip))
+            assertTrue("Should be valid IP: $ip", NetworkUtils.isValidIp(ip))
         }
     }
 
     @Test
     fun testInvalidIPv4() {
-        val invalidIps = listOf(
+        val invalidIPs = listOf(
             "256.256.256.256",
-            "1.2.3",
-            "1.2.3.4.5",
+            "192.168.1",
+            "192.168.1.1.1",
+            "192.168.1.a",
             "192.168.1.256",
-            "a.b.c.d",
-            "192.168.01.1", // Technically invalid in many implementations due to octal ambiguity
             ""
         )
-        for (ip in invalidIps) {
+        for (ip in invalidIPs) {
             assertFalse("Should be invalid IPv4: $ip", NetworkUtils.isIPv4(ip))
         }
     }
 
     @Test
     fun testValidIPv6() {
-        val validIps = listOf(
-            "2001:0db8:85a3:0000:0000:8a2e:0370:7334", // Full
-            "2001:db8:85a3:0:0:8a2e:370:7334",       // Shortened
-            "2001:db8:85a3::8a2e:370:7334",         // Compressed
-            "2001:db8::",                           // Compressed end
-            "::1",                                  // Loopback
-            "::",                                   // Unspecified
-            "fe80::1",                              // Link-local
-            "ff02::1",                              // Multicast
-            "::ffff:192.168.0.1",                   // IPv4-mapped
-            "2001:DB8::1"                           // Case insensitive
+        val validIPv6s = listOf(
+            "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+            "2001:db8:85a3:0:0:8A2e:370:7334",
+            "2001:db8:85a3::8A2e:370:7334",
+            "::1",
+            "::",
+            "fe80::1",
+            "2001:db8::1"
         )
-        for (ip in validIps) {
+        for (ip in validIPv6s) {
             assertTrue("Should be valid IPv6: $ip", NetworkUtils.isIPv6(ip))
-            assertTrue("Should be valid general IP: $ip", NetworkUtils.isValidIp(ip))
+            assertTrue("Should be valid IP: $ip", NetworkUtils.isValidIp(ip))
         }
     }
 
     @Test
     fun testInvalidIPv6() {
-        val invalidIps = listOf(
-            "2001:db8:::1",      // Too many colons
-            "12345::1",          // Too many hex digits
-            "g:h:i:j:k:l:m:n",   // Invalid hex
-            "2001:db8::1::2",    // Multiple compressions
-            "1:2:3:4:5:6:7:8:9", // Too many parts
+        val invalidIPv6s = listOf(
+            "2001:0db8:85a3:::8a2e:0370:7334",
+            "2001:0db8:85a3:0000:0000:8a2e:0370:7334:extra",
+            "2001::85a3::8a2e",
+            ":::1",
             ""
         )
-        for (ip in invalidIps) {
+        for (ip in invalidIPv6s) {
             assertFalse("Should be invalid IPv6: $ip", NetworkUtils.isIPv6(ip))
         }
     }

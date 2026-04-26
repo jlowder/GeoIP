@@ -1,4 +1,4 @@
-package com.example.ipgeolookup
+package com.lowdermilk.geoip
 
 import android.Manifest
 import android.content.ClipData
@@ -18,13 +18,13 @@ import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import com.example.ipgeolookup.databinding.ActivityMainBinding
-import com.example.ipgeolookup.ui.viewmodel.GeoLocationViewModel
-import com.example.ipgeolookup.ui.viewmodel.GeoLocationUiState
-import com.example.ipgeolookup.data.model.GeoLocation
-import com.example.ipgeolookup.data.model.getFullLocation
-import com.example.ipgeolookup.data.model.getFormattedCoordinates
-import com.example.ipgeolookup.util.NetworkUtils
+import com.lowdermilk.geoip.databinding.ActivityMainBinding
+import com.lowdermilk.geoip.ui.viewmodel.GeoLocationViewModel
+import com.lowdermilk.geoip.ui.viewmodel.GeoLocationUiState
+import com.lowdermilk.geoip.data.model.GeoLocation
+import com.lowdermilk.geoip.data.model.getFullLocation
+import com.lowdermilk.geoip.data.model.getFormattedCoordinates
+import com.lowdermilk.geoip.util.NetworkUtils
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint

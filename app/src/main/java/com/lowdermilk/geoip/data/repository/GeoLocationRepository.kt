@@ -1,9 +1,9 @@
-package com.example.ipgeolookup.data.repository
+package com.lowdermilk.geoip.data.repository
 
-import com.example.ipgeolookup.data.model.GeoLocation
-import com.example.ipgeolookup.data.model.Result
-import com.example.ipgeolookup.data.remote.ApiClient
-import com.example.ipgeolookup.data.remote.IpInfoApi
+import com.lowdermilk.geoip.data.model.GeoLocation
+import com.lowdermilk.geoip.data.model.Result
+import com.lowdermilk.geoip.data.remote.ApiClient
+import com.lowdermilk.geoip.data.remote.IpInfoApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.InetAddress

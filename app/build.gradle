@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.ipgeolookup'
+    namespace 'com.lowdermilk.geoip'
     compileSdk 36
     
     compileOptions {
@@ -17,7 +17,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.ipgeolookup"
+        applicationId "com.lowdermilk.geoip"
         minSdk 23
         targetSdk 34
         versionCode 1

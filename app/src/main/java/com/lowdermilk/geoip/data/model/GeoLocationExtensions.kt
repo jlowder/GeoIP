@@ -1,4 +1,4 @@
-package com.example.ipgeolookup.data.model
+package com.lowdermilk.geoip.data.model
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

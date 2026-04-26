@@ -1,10 +1,10 @@
-package com.example.ipgeolookup.ui.viewmodel
+package com.lowdermilk.geoip.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ipgeolookup.data.model.GeoLocation
-import com.example.ipgeolookup.data.model.Result
-import com.example.ipgeolookup.data.repository.GeoLocationRepository
+import com.lowdermilk.geoip.data.model.GeoLocation
+import com.lowdermilk.geoip.data.model.Result
+import com.lowdermilk.geoip.data.repository.GeoLocationRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

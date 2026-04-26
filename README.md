@@ -35,7 +35,7 @@ The APK will be generated at `app/build/outputs/apk/debug/app-debug.apk`
 
 ### From Google Play Store
 
-[![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png)](https://play.google.com/store/apps/details?id=com.example.ipgeolookup)
+[![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png)](https://play.google.com/store/apps/details?id=com.lowdermilk.geoip)
 
 ## API Integration
 
