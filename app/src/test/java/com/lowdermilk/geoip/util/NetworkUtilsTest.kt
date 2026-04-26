@@ -48,6 +48,7 @@ class NetworkUtilsTest {
             "::1",
             "::",
             "fe80::1",
+            "::ffff:192.168.0.1",
             "2001:db8::1"
         )
         for (ip in validIPv6s) {
