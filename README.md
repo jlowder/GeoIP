@@ -63,7 +63,7 @@ Uses OSMDroid library for OpenStreetMap integration:
 
 # Build debug and release in one step
 ./gradlew build
-# 
+
 # Run tests
 ./gradlew test
 ```
