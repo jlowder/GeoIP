@@ -1,4 +1,4 @@
-package com.example.ipgeolookup.data.repository
+package com.lowdermilk.geoip.data.repository
 
 import org.junit.Assert.assertNotNull
 import org.junit.Test

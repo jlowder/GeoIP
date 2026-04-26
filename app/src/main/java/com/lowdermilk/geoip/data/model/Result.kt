@@ -1,4 +1,4 @@
-package com.example.ipgeolookup.data.model
+package com.lowdermilk.geoip.data.model
 
 sealed class Result<out T> {
     data class Success<T>(val data: T) : Result<T>()

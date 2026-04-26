@@ -1,4 +1,4 @@
-package com.example.ipgeolookup.util
+package com.lowdermilk.geoip.util
 
 object NetworkUtils {
 
