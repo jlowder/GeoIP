@@ -30,6 +30,8 @@ class NetworkUtilsTest {
             "192.168.1.1.1",
             "192.168.1.a",
             "192.168.1.256",
+            "a.b.c.d",
+            "192.168.01.1",
             ""
         )
         for (ip in invalidIPs) {
