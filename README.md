@@ -1,4 +1,4 @@
-# GeoIP - Android Application
+# GeoIP - IP Address Geolocation
 
 ![Android](https://img.shields.io/badge/Android-6.0%2B-green.svg?logo=android)
 ![Platform](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
