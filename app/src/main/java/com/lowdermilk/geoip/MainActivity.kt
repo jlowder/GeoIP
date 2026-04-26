@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.ipInput.addTextChangedListener(object : android.text.TextWatcher {
             override fun afterTextChanged(s: android.text.Editable?) {
-                binding.clearButton.visibility = if (s?.isEmpty() == true) {
+                binding.clearButton.visibility = if (s.isNullOrEmpty()) {
                     android.view.View.GONE
                 } else {
                     android.view.View.VISIBLE
