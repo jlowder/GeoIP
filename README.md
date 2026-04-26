@@ -21,6 +21,10 @@ A complete Android Kotlin application for IP geolocation lookup using IPinfo.io 
 - **Loading States**: Loading indicator while fetching data
 - **Error Handling**: Network errors with user-friendly messages
 
+## Screenshots
+
+![GeoIP App Screenshot](doc/Screenshot-GeoIP.jpg)
+
 ## Installation
 
 ### From Source
@@ -31,7 +35,7 @@ cd GeoIP
 ./gradlew build
 ```
 
-The APK will be generated at `app/build/outputs/apk/debug/app-debug.apk`
+The release and debug APK files will be generated in `app/build/outputs/apk/release/` and `app/build/outputs/apk/debug/` respectively.
 
 ## API Integration
 
