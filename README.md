@@ -26,23 +26,18 @@ A complete Android Kotlin application for IP geolocation lookup using IPinfo.io 
 ### From Source
 
 ```bash
-git clone https://github.com/yourusername/ipgeolookup.git
-cd ipgeolookup
+git clone https://github.com/jlowder/GeoIP.git
+cd GeoIP
 ./gradlew build
 ```
 
 The APK will be generated at `app/build/outputs/apk/debug/app-debug.apk`
-
-### From Google Play Store
-
-[![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png)](https://play.google.com/store/apps/details?id=com.lowdermilk.geoip)
 
 ## API Integration
 
 Uses IPinfo.io API for geolocation data:
 - Free tier available with 50,000 requests per month
 - No API key required for basic usage
-- [Set up API token](API_TOKEN_SETUP.md) for enhanced functionality
 
 ## Map Integration
 
@@ -66,6 +61,9 @@ Uses OSMDroid library for OpenStreetMap integration:
 # Build release APK
 ./gradlew assembleRelease
 
+# Build debug and release in one step
+./gradlew build
+# 
 # Run tests
 ./gradlew test
 ```
@@ -116,10 +114,6 @@ All network operations run on IO dispatcher using coroutines.
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
-## Contributing
-
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details.
-
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
@@ -132,9 +126,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Support
 
-- [GitHub Issues](https://github.com/yourusername/ipgeolookup/issues)
+- [GitHub Issues](https://github.com/jlowder/GeoIP/issues)
 - [API Documentation](https://ipinfo.io/developers)
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for release notes.
