@@ -1,0 +1,10 @@
+GeoIP is an Android app that looks up IP address geolocation data. When
+you open it, it automatically detects your current IP address and
+shows where you are located (country, city, region, coordinates, ISP,
+and organization). You can also manually enter any IP address to see
+its location. The app displays all the details on the screen and shows
+them on an interactive map. You can copy the location information with
+one tap, or open it in an external map app like Google Maps. It
+supports both IPv4 and IPv6 addresses, including compressed format and
+IPv4-mapped IPv6 format. It also works with regular hostnames.
+

@@ -1,0 +1,1 @@
+GeoIP is an Android Kotlin application that performs IP address geolocation lookups using the IPinfo.io API, featuring automatic user IP detection, manual IP search, detailed location information display, OpenStreetMap integration for interactive maps, and clipboard copy functionality for sharing location data.
